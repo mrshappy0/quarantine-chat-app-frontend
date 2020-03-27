@@ -13,20 +13,51 @@ import { Header, Segment } from "semantic-ui-react";
 
 const loginUrl = "http://localhost:3000/api/v1/login";
 const profileUrl = "http://localhost:3000/api/v1/profile";
-const createUserUrl = "http://localhost:3000/api/v1/users";
+const userUrl = "http://localhost:3000/api/v1/users";
 
 export default class App extends Component {
   state = {
     todos: [],
     user: {},
     error: [false, null],
-    uniquenessError: [false, null]
+    uniquenessError: [false, null],
+    chatRoomUsers: [],
+    friendBoxShow: false,
+    whichFriend: null
   };
 
   resetErrorCode = () => {
     this.setState({
       error: [false, null]
     });
+  };
+
+  addFriendInfo = friend => {
+    let friendFound = this.state.chatRoomUsers.find(user => (user.username == friend))
+    // console.log(thing)
+    this.setState({
+      whichFriend: friendFound
+    })
+  };
+
+  toggleFriendBox = () => {
+    this.setState(prevState => ({
+      friendBoxShow: !prevState.friendBoxShow
+    }));
+  };
+
+  pullInUserData = () => {
+    let { token } = localStorage;
+    if (localStorage.token) {
+      fetch(userUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(response => response.json())
+        .then(users => this.setState({ chatRoomUsers: users }));
+    }
   };
 
   componentDidMount() {
@@ -39,7 +70,8 @@ export default class App extends Component {
         }
       })
         .then(response => response.json())
-        .then(result => this.setState({ user: result.user }));
+        .then(result => this.setState({ user: result.user }))
+        .then(this.pullInUserData);
     } else {
       return <Redirect to="/login" />;
     }
@@ -47,7 +79,7 @@ export default class App extends Component {
 
   logout = () => {
     localStorage.removeItem("token");
-    this.setState({ user: "" });
+    this.setState({ user: "", chatRoomUsers: "" });
   };
 
   login = (user, history) => {
@@ -71,11 +103,12 @@ export default class App extends Component {
             error: [true, "Invalid Password or Email"]
           });
         }
-      });
+      })
+      .then(this.pullInUserData);
   };
 
   createUser = (user, history) => {
-    fetch(createUserUrl, {
+    fetch(userUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -96,21 +129,9 @@ export default class App extends Component {
             uniquenessError: [true, "Username already taken!"]
           });
         }
-      });
+      })
+      .then(this.pullInUserData);
   };
-
-  // addTodo = newTodo => {
-  //   this.setState({
-  //     todos: [...this.state.todos, newTodo]
-  //   });
-  // };
-
-  // deleteTodo = id => {
-  //   const todos = this.state.todos.filter(todo => {
-  //     return todo.id !== id;
-  //   });
-  //   this.setState({ todos });
-  // };
 
   render() {
     return (
@@ -142,6 +163,11 @@ export default class App extends Component {
                     deleteTodo={this.deleteTodo}
                     todoAction={this.addTodo}
                     logout={this.logout}
+                    chatRoomUsers={this.state.chatRoomUsers}
+                    friendBoxShow={this.state.friendBoxShow}
+                    toggleFriendBox={this.toggleFriendBox}
+                    addFriendInfo={this.addFriendInfo}
+                    whichFriend={this.state.whichFriend}
                   />
                   <Route
                     path="/login"

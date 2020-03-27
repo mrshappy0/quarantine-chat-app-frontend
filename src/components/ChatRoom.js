@@ -7,22 +7,28 @@ import {
   Segment,
   Icon
 } from "semantic-ui-react";
-import { withTheme } from "styled-components";
+// import { withTheme } from "styled-components";
 
 export default class ChatRoom extends Component {
   state = {
     comments: [],
     textarea: "",
-    sendToTextArea: ""
+    sendToTextArea: "",
+    chatUser: ""
   };
 
-
-//   componentDidMount(){
-//     this.setState({
-//         textarea: "",
-//         sendToTextArea: ""
-//     })
-//   }
+  renderComments = (type, number) => {
+    // let type = ""
+    if (type == "src") {
+      return this.props.chatRoomUsers[number]
+        ? this.props.chatRoomUsers[number].q_url
+        : null;
+    } else {
+      return this.props.chatRoomUsers[number]
+        ? this.props.chatRoomUsers[number].username
+        : null;
+    }
+  };
 
   handleLogout = e => {
     e.stopPropagation();
@@ -43,6 +49,12 @@ export default class ChatRoom extends Component {
       });
     }
   };
+
+  handleClick = (e) => {
+    e.stopPropagation();
+    this.props.toggleFriendBox()
+    this.props.addFriendInfo(e.target.innerText)
+  }
 
   plugNewComment = () => {
     if (this.state.sendToTextArea.length !== 0) {
@@ -70,14 +82,16 @@ export default class ChatRoom extends Component {
         <Comment.Group>
           <Segment>
             <Header as="h3" dividing>
-              <Icon name="wechat" size="x-large"></Icon>
+              <Icon name="wechat"></Icon>
               Chat Room
             </Header>
 
             <Comment>
-              <Comment.Avatar src="/images/avatar/small/matt.jpg" />
+              <Comment.Avatar src={this.renderComments("src", 4)} />
               <Comment.Content>
-                <Comment.Author as="a">Matt</Comment.Author>
+                <Comment.Author as="a" onClick={this.handleClick}>
+                  {this.renderComments("author", 4)}
+                </Comment.Author>
                 <Comment.Metadata>
                   <div>Today at 5:42PM</div>
                 </Comment.Metadata>
@@ -89,9 +103,11 @@ export default class ChatRoom extends Component {
             </Comment>
 
             <Comment>
-              <Comment.Avatar src="/images/avatar/small/elliot.jpg" />
+              <Comment.Avatar src={this.renderComments("src", 3)} />
               <Comment.Content>
-                <Comment.Author as="a">Elliot Fu</Comment.Author>
+                <Comment.Author as="a" onClick={this.handleClick}>
+                  {this.renderComments("author", 3)}
+                </Comment.Author>
                 <Comment.Metadata>
                   <div>Yesterday at 12:30AM</div>
                 </Comment.Metadata>
@@ -106,14 +122,17 @@ export default class ChatRoom extends Component {
               </Comment.Content>
               <Comment.Group>
                 <Comment>
-                  <Comment.Avatar src="/images/avatar/small/jenny.jpg" />
+                  <Comment.Avatar src={this.props.user.q_url} />
                   <Comment.Content>
-                    <Comment.Author as="a">Jenny Hess</Comment.Author>
+                    <Comment.Author as="a" onClick={this.handleClick}>
+                      {this.props.user.username}
+                    </Comment.Author>
                     <Comment.Metadata>
                       <div>Just now</div>
                     </Comment.Metadata>
                     <Comment.Text>
-                      Elliot you are always so right :)
+                      {this.renderComments("author", 2)} you are always so right
+                      :)
                     </Comment.Text>
                     <Comment.Actions>
                       <Comment.Action>Reply</Comment.Action>
@@ -126,7 +145,7 @@ export default class ChatRoom extends Component {
             <Comment>
               <Comment.Avatar src={this.props.user.q_url} />
               <Comment.Content>
-                <Comment.Author as="a">
+                <Comment.Author as="a" onClick={this.handleClick}>
                   {this.props.user.username}
                 </Comment.Author>
                 <Comment.Metadata>

@@ -16,18 +16,19 @@ const Header = styled.h2`
   color: #a333c8;
 `;
 
-export default class UserSideTab extends Component {
+export default class FriendBox extends Component {
   state = {
-    visible: true,
+    visible: true
   };
-  toggleVisibility = () => 
-      this.setState(prevState => ({visible: !prevState.visible}));
+
+  toggleVisibility = () =>
+    this.setState(prevState => ({ visible: !prevState.visible }));
 
   render() {
     const { visible } = this.state;
     return (
       <div>
-        <Header>Isolation Info: Before and during Quarantine!</Header>
+          <Header>Friend Zone (from a distance tho!!!)</Header>
         <Table celled>
           <Transition visible={visible} animation="fly down" duration={1000}>
             <Table.Header>
@@ -37,7 +38,7 @@ export default class UserSideTab extends Component {
                     <Segment.Group vertical>
                       <Header>Pre-Quarantine Photo: </Header>
                       <Image
-                        src={this.props.user.pre_qurl}
+                        src={this.props.whichFriend.pre_qurl}
                         centered
                         size="medium"
                       />
@@ -46,7 +47,7 @@ export default class UserSideTab extends Component {
                     <Segment.Group vertical>
                       <Header>Current-Quarantine Photo: </Header>
                       <Image
-                        src={this.props.user.q_url}
+                        src={this.props.whichFriend.q_url}
                         centered
                         size="medium"
                       />
@@ -64,7 +65,7 @@ export default class UserSideTab extends Component {
                 <Label>
                   <Icon name="info circle" size="large"></Icon>User Bio:{" "}
                 </Label>{" "}
-                "{this.props.user.bio}"
+                "{this.props.whichFriend.bio}"
               </Table.Cell>
             </Table.Row>
           </Table.Body>
