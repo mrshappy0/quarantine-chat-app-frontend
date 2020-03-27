@@ -1,0 +1,42 @@
+.App {
+  /* text-align: center; */
+}
+
+h1 {
+  text-align: center;
+}
+
+.login-form {
+  background-color: rgba(106, 136, 138, 0.541);
+  margin: auto;
+  margin-top: 10%;
+  width: 400px;
+  height: 500px;
+  box-shadow: 5px 6px 30px -10px rgb(39, 43, 41);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: rgb(141, 26, 151) !important;
+}
+
+
+.login-form input {
+  height: 30px;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 3px 0px 3px 3px;
+}
+
+body {
+  /* background-color: rgba(12, 57, 63, 0.308) !important; */
+  background-color: #c290d3 !important
+}
+
+.comment-box {
+  background-color: white;
+}
