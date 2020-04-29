@@ -11,7 +11,7 @@ Coming soon: Websocket implentation for realtime chat functions.
 [![Frontend Demo](http://img.youtube.com/vi/0QfXG_H0P2o/0.jpg)](https://www.youtube.com/watch?v=0QfXG_H0P2o  "Frontend Demo")
 
 ### Create User Feature
-![Create User Demo](QCSignUP.mp4)
+![Create User Demo](QCSignUP.gif)
 
 ### Login and Chat Interface Demo
 ![Login and Chat Demo](QCLogin.mp4)
