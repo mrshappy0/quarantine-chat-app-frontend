@@ -10,11 +10,12 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateUser from "./components/CreateUser";
 import { Header, Segment } from "semantic-ui-react";
+import { Helmet } from "react-helmet";
 
 const loginUrl = "http://localhost:3000/api/v1/login";
 const profileUrl = "http://localhost:3000/api/v1/profile";
 const userUrl = "http://localhost:3000/api/v1/users";
-
+console.log(React.version)
 export default class App extends Component {
   state = {
     todos: [],
@@ -33,11 +34,12 @@ export default class App extends Component {
   };
 
   addFriendInfo = friend => {
-    let friendFound = this.state.chatRoomUsers.find(user => (user.username == friend))
-    // console.log(thing)
+    let friendFound = this.state.chatRoomUsers.find(
+      user => user.username == friend
+    );
     this.setState({
       whichFriend: friendFound
-    })
+    });
   };
 
   toggleFriendBox = () => {
@@ -137,6 +139,10 @@ export default class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Helmet>
+            <title>Quarantine Chat App</title>
+            <link rel="icon" type="png" href="./logo.png" />
+          </Helmet>
           <Segment.Group>
             <Segment>
               <Header

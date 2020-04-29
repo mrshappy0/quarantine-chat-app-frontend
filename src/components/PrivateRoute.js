@@ -8,6 +8,7 @@ import FriendBox from "./FriendBox";
 export default function PrivateRoute(props) {
   const { logout } = props;
   function showFriendBox (){
+    console.log(props.friendBoxShow)
     if(props.friendBoxShow){
       return <FriendBox user={props.user} chatRoomUsers={props.chatRoomUsers} whichFriend={props.whichFriend}/>
     } else {

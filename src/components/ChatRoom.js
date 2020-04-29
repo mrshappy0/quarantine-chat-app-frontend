@@ -95,7 +95,7 @@ export default class ChatRoom extends Component {
                 <Comment.Metadata>
                   <div>Today at 5:42PM</div>
                 </Comment.Metadata>
-                <Comment.Text>How artistic!</Comment.Text>
+                <Comment.Text>I can't wait to sing and code tonight! Who is joining?</Comment.Text>
                 <Comment.Actions>
                   <Comment.Action>Reply</Comment.Action>
                 </Comment.Actions>
@@ -113,7 +113,7 @@ export default class ChatRoom extends Component {
                 </Comment.Metadata>
                 <Comment.Text>
                   <p>
-                    This has been very useful for my research. Thanks as well!
+                    I'm gonna sing every song! Can't Wait!
                   </p>
                 </Comment.Text>
                 <Comment.Actions>
@@ -122,16 +122,16 @@ export default class ChatRoom extends Component {
               </Comment.Content>
               <Comment.Group>
                 <Comment>
-                  <Comment.Avatar src={this.props.user.q_url} />
+                  <Comment.Avatar src={this.renderComments("src", 2)} />
                   <Comment.Content>
                     <Comment.Author as="a" onClick={this.handleClick}>
-                      {this.props.user.username}
+                    {this.renderComments("author", 2)}
                     </Comment.Author>
                     <Comment.Metadata>
                       <div>Just now</div>
                     </Comment.Metadata>
                     <Comment.Text>
-                      {this.renderComments("author", 2)} you are always so right
+                      {this.renderComments("author", 3)} I'm motorcycling right now. Can you dig it?
                       :)
                     </Comment.Text>
                     <Comment.Actions>
@@ -152,7 +152,7 @@ export default class ChatRoom extends Component {
                   <div>5 days ago</div>
                 </Comment.Metadata>
                 <Comment.Text>
-                  Dude, this is awesome. Thanks so much
+                  No, we can't dig it bruh!
                 </Comment.Text>
                 <Comment.Actions>
                   <Comment.Action>Reply</Comment.Action>
