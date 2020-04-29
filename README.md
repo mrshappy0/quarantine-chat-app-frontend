@@ -11,7 +11,7 @@ Coming soon: Websocket implentation for realtime chat functions.
 ![Frontend Create User Demo](https://imgur.com/uTvJSn1)
 
 ### Login and Chat Interface Demo
-![Frontend Auth Demo](https://imgur.com/35aSeUC)
+![Frontend Auth Demo](https://i.imgur.com/35aSeUCh.mp4)
 
 <!-- Contributors -->
 ## Contributors Guide
