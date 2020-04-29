@@ -8,10 +8,10 @@ Coming soon: Websocket implentation for realtime chat functions.
 
 <!-- Frontend Video Demo -->
 ### Create User Feature
-![Frontend Create User Demo](https://imgur.com/uTvJSn1)
+![Create User Demo](https://i.imgur.com/uTvJSn1h.mp4)
 
 ### Login and Chat Interface Demo
-![Frontend Auth Demo](https://i.imgur.com/35aSeUCh.mp4)
+![Login and Chat Demo](https://i.imgur.com/35aSeUCh.mp4)
 
 <!-- Contributors -->
 ## Contributors Guide
