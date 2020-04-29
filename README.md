@@ -14,7 +14,7 @@ Coming soon: Websocket implentation for realtime chat functions.
 ![Create User Demo](QCSignUP.gif)
 
 ### Login and Chat Interface Demo
-![Login and Chat Demo](QCLogin.mp4)
+![Login and Chat Demo](QCLogin.gif)
 
 <!-- Contributors -->
 ## Contributors Guide
