@@ -1,12 +1,15 @@
 
 ## Welcome to Quarantine Chat!
-The frontend of this app utilizes the JWT Rails Auth to ensure users must sign-in to access the protected resources. If a user does not have an account they can create one. This allows them to upload two photos and a bio. Once the account is created only one of the photos is displayed within the chat interface. The photo displayed is dependent on whether the country is still in Quarantine or not.
+The frontend of this app utilizes the JWT Rails Auth to ensure users must sign-in to access the protected resources. If a user does not have an account they can create one. This allows them to upload two photos and a bio. Once the account is created only one of the photos is displayed within the chat interface. The photo displayed is dependent on whether the we are is still in Quarantine or not.
 
 Each user can view other profiles by clicking on their name in the chat. It also allows you top collapse any bio currently displayed. This collapse is animated for increased user experience.
 
 Coming soon: Websocket implentation for realtime chat functions.
 
 <!-- Frontend Video Demo -->
+### Video Demo with Audio
+[![Frontend Demo](http://img.youtube.com/vi/0QfXG_H0P2o /0.jpg)](https://www.youtube.com/watch?v=0QfXG_H0P2o  "Frontend Demo")
+
 ### Create User Feature
 ![Create User Demo](https://i.imgur.com/uTvJSn1h.mp4)
 
