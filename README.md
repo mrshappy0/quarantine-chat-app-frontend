@@ -8,7 +8,7 @@ Coming soon: Websocket implentation for realtime chat functions.
 
 <!-- Frontend Video Demo -->
 ### Video Demo with Audio
-[![Frontend Demo](http://img.youtube.com/vi/0QfXG_H0P2o /0.jpg)](https://www.youtube.com/watch?v=0QfXG_H0P2o  "Frontend Demo")
+[![Frontend Demo](http://img.youtube.com/vi/0QfXG_H0P2o/0.jpg)](https://www.youtube.com/watch?v=0QfXG_H0P2o  "Frontend Demo")
 
 ### Create User Feature
 ![Create User Demo](https://i.imgur.com/uTvJSn1.mp4)
